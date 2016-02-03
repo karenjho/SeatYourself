@@ -3,6 +3,12 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+
+    if params[:search]
+      @restaurants = Restaurant.where(name: params[:search]).order(created_at: :desc)
+    else
+      @restaurants = Restaurant.all.order(created_at: :desc)
+    end
   end
 
   def show
