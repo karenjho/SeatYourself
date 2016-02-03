@@ -1,4 +1,4 @@
-<%= form_for @restaurant, @reservation do |f| %>
+<%= form_for @reservation do |f| %>
   <div class="field">
     <%= f.label :date_time, "Date & Time" %><br>
     <%= f.datetime_field :date_time %>
@@ -8,6 +8,6 @@
     <%= f.number_field :party_size %>
   </div>
   <div class="actions">
-    <%= f.submit "Save reservation" %>
+    <%= f.submit "Save Reservation" %>
   </div>
 <% end %>
