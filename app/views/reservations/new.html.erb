@@ -1,4 +1,4 @@
-<%= form_for @reservation do |f| %>
+<%= form_for ([@reservation, @user]) do |f| %>
   <div class="field">
     <%= f.label :date_time, "Date & Time" %><br>
     <%= f.datetime_field :date_time %>

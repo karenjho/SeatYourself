@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
 
   before_action :load_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :load_user
 
   def new
     @reservation = Reservation.new
@@ -43,6 +44,10 @@ class ReservationsController < ApplicationController
 
   def load_reservation
     @reservation = Reservation.find(params[:id])
+  end
+
+  def load_user
     @user = current_user
   end
+
 end
