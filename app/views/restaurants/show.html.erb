@@ -1,3 +1,5 @@
 <h1><%= @restaurant.name %></h1>
 
 <%= link_to "Reserve!", new_user_reservation_path(@restaurant, current_user) %>
+
+<%= link_to "Edit restaurant", edit_restaurant_path(@restaurant) %>
