@@ -1,5 +1,7 @@
 <h1>Restaurants</h1>
 
+<%= render "search_form" %>
+
 <ul>
   <% @restaurants.each do |restaurant| %>
     <li><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></li>
