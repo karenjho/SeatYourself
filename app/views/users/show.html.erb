@@ -1,4 +1,4 @@
-<h2>Your OpenTable Profile</h2>
+<h2>Your SeatYourself Profile</h2>
 
 <p>
   <ul>
@@ -8,3 +8,13 @@
 </p>
 
 <%= link_to "Create a Restaurant", new_restaurant_path %>
+
+<h4>Your Reservations:</h4>
+
+<% @user.reservations.all do |reserv| %>
+  <ul>
+    <li>Place: <%= reserv.restaurant_id %></li>
+    <li>Time: <%= reserv.date_time %></li>
+    <li>Party Size: <%= reserv.party_size %></li>
+  </ul>
+<% end %>
