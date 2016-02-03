@@ -1,7 +1,9 @@
 <h1>Restaurants</h1>
 
+<%= render "search_form" %>
+
 <ul>
   <% @restaurants.each do |restaurant| %>
-    <li><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></li>
+    <li><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %> | <%= link_to "Reserve now", new_user_reservation_path(restaurant, current_user) %></li>
   <% end %>
 </ul>
