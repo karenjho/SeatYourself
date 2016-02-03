@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = @restaurant.reservations.build(reservation_params)
 
     if @reservation.save
       redirect_to restaurants_path
