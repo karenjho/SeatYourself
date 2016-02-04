@@ -13,8 +13,11 @@ class ReservationsController < ApplicationController
 
     if @restaurant.available?(@reservation.party_size, @reservation.date_time)
       @reservation.save
+
+      flash[:notice] = "Your reservation at #{@restaurant.name} has been saved!"
       redirect_to user_path(current_user)
     else
+      flash[:alert] = "#{@restaurant.name} is not available at that date and time, for your party size."
       render :new
     end
   end
