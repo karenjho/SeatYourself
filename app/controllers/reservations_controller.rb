@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
 
     if @restaurant.available?(@reservation.party_size, @reservation.date_time)
       @reservation.save
-      redirect_to restaurants_path
+      redirect_to user_path(current_user)
     else
       render :new
     end
