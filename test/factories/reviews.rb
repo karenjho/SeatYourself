@@ -1,7 +1,7 @@
 FactoryGirl.define do
+
   factory :review do
-    user nil
-    restaurant nil
-    comment ""
+    comment "This is a test review."
   end
+
 end
