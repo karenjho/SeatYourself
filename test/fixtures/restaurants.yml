@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  cpacity: 1
-  address: MyString
-  phone: MyString
-  url: MyString
-  photo_url: MyString
-
-two:
-  name: MyString
-  cpacity: 1
-  address: MyString
-  phone: MyString
-  url: MyString
-  photo_url: MyString
+#
+# small_restaurant:
+#   name: "Small Bistro"
+#   capacity: <%= rand(25) %>
+#   # address: MyString
+#   # phone: MyString
+#   # url: MyString
+#   # photo_url: MyString
+#
+# large_restaurant:
+#   name: "Large Banquet Hall"
+#   capacity: 150
+#   # address: MyString
+#   # phone: MyString
+#   # url: MyString
+#   # photo_url: MyString
