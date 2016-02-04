@@ -9,10 +9,15 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = @restaurant.reservations.build(reservation_params)
+    @reservation.user = current_user
 
-    if @reservation.save
-      redirect_to restaurants_path
+    if @restaurant.available?(@reservation.party_size, @reservation.date_time)
+      @reservation.save
+
+      flash[:notice] = "Your reservation at #{@restaurant.name} has been saved!"
+      redirect_to user_path(current_user)
     else
+      flash[:alert] = "#{@restaurant.name} is not available at that date and time, for your party size."
       render :new
     end
   end
@@ -47,6 +52,7 @@ class ReservationsController < ApplicationController
   end
 
   def load_user
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @user = current_user
   end
 
