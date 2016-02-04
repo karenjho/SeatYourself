@@ -7,7 +7,7 @@ def create
   user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to restaurants_url, notice: "Thanks for logged in"
+      redirect_to restaurants_url, notice: "Thanks for logging in"
     else
       render :new
     end
