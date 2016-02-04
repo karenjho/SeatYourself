@@ -3,8 +3,8 @@ class Restaurant < ActiveRecord::Base
   has_many :reservations
   has_many :users, through: :reservations
 
-  def available?(party_size, time)
-    all_reservations = reservations.where("time >= ? and time < ?", time.beginning_of_hour, time.end_of_hour).sum(:party_size)
+  def available?(party_size, date_time)
+    all_reservations = reservations.where("date_time >= ? and date_time < ?", date_time.beginning_of_hour, date_time.end_of_hour).sum(:party_size)
     available_capacity = capacity - all_reservations
 
     party_size > 0 && party_size <= available_capacity
