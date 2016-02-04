@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  date_time: 2016-02-02 15:39:10
-  party_size: 1
-  user_id: 
-  restaurant_id: 
-
-two:
-  date_time: 2016-02-02 15:39:10
-  party_size: 1
-  user_id: 
-  restaurant_id: 
+# one:
+#   date_time: 2016-02-02 15:39:10
+#   party_size: 1
+#   user_id:
+#   restaurant_id:
+#
+# two:
+#   date_time: 2016-02-02 15:39:10
+#   party_size: 1
+#   user_id:
+#   restaurant_id: 
