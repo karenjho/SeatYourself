@@ -4,7 +4,7 @@ class ReviewTest < ActiveSupport::TestCase
 
   setup do
     @user = FactoryGirl.create(:user)
-    @restaurant = FactoryGirl.create(:restaurant)
+    @restaurant = FactoryGirl.create(:restaurant_for_review)
     @review = FactoryGirl.create(:review)
   end
 
@@ -33,5 +33,5 @@ class ReviewTest < ActiveSupport::TestCase
     @review2 = @user.reviews.build(comment: "test2")
     assert 2, @user.reviews.count
   end
-  
+
 end
