@@ -9,12 +9,16 @@
 
 <%= link_to "Create a Restaurant", new_restaurant_path %>
 
-<h4>Your Reservations:</h4>
+<% if current_user == @user %>
+  <h4>Your Reservations:</h4>
 
-<% @user.reservations.all do |reserv| %>
-  <ul>
-    <li>Place: <%= reserv.restaurant_id %></li>
-    <li>Time: <%= reserv.date_time %></li>
-    <li>Party Size: <%= reserv.party_size %></li>
-  </ul>
+  <% @user.reservations.each do |reserv| %>
+    <ul>
+      <li>
+        Place: <%= reserv.restaurant.name %><br>
+        Time: <%= reserv.date_time %><br>
+        Party Size: <%= reserv.party_size %>
+      </li>
+    </ul>
+  <% end %>
 <% end %>

@@ -4,6 +4,7 @@ class RestaurantTest < ActiveSupport::TestCase
   setup do
     @restaurant = FactoryGirl.create(:restaurant)
     @time = Time.now
+    @time2 = @time.advance(hours: 2)
   end
 
   test "restaurant is available" do
@@ -24,12 +25,17 @@ class RestaurantTest < ActiveSupport::TestCase
   end
 
   test "restaurant is not available given a reservation" do
-    FactoryGirl.create(:reservation, party_size: 149, restaurant: @restaurant)
-    assert @restaurant.available?(10, @time)
+    FactoryGirl.create(:reservation, party_size: 99, restaurant: @restaurant)
+    assert_not @restaurant.available?(10, @time)
   end
 
   test "restaurant is available with reservations at different times" do
-    FactoryGirl.create(:reservation, @restaurant, time: @time, party_size: 99 )
-    assert @restaurant.available?(10, @time)
+    FactoryGirl.create(:reservation, restaurant: @restaurant, date_time: @time, party_size: 99)
+    assert @restaurant.available?(10, @time2)
+  end
+
+  test "restaurant is not available with overlapping reservations" do
+    FactoryGirl.create(:reservation, restaurant: @restaurant, date_time: @time, party_size: 60)
+    assert_not @restaurant.available?(60, @time)
   end
 end
