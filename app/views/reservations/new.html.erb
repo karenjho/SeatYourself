@@ -1,13 +1,13 @@
 <h1>Make a Reservation</h1>
 
-<div class="reserve-info">
-  <p><%= @restaurant.name %><br>
-    <%= @restaurant.address %><br>
-    <%= @restaurant.phone %>
+<!-- <div class="reserve-info">
+  <p><%#= @restaurant.name %><br>
+    <%#= @restaurant.address %><br>
+    <%#= @restaurant.phone %>
   </p>
-</div>
+</div> -->
 
-<%= form_for ([@user, @reservation]) do |f| %>
+<%= form_for ([@restaurant, @reservation]) do |f| %>
   <div class="field">
     <%= f.label :date_time, "Date & Time" %><br>
     <%= f.datetime_local_field :date_time %>

@@ -9,8 +9,10 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = @restaurant.reservations.build(reservation_params)
+    @reservation.user = current_user
 
-    if @reservation.save
+    if @restaurant.available?(@reservation.party_size, @reservation.date_time)
+      @reservation.save
       redirect_to restaurants_path
     else
       render :new
@@ -47,6 +49,7 @@ class ReservationsController < ApplicationController
   end
 
   def load_user
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @user = current_user
   end
 
