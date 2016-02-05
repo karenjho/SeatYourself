@@ -17,8 +17,11 @@
       <li>
         Place: <%= reserv.restaurant.name %><br>
         Time: <%= reserv.date_time %><br>
-        Party Size: <%= reserv.party_size %>
+        Party Size: <%= reserv.party_size %><br>
+        <%= link_to "Edit", edit_restaurant_reservation_path(reserv.restaurant, reserv) %><br>
+        link_to Delete
       </li>
+
     </ul>
   <% end %>
   <h4> Your Restaurants' Reservations </h4>

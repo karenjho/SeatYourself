@@ -1,13 +1,3 @@
- <%= form_for ([@restaurant, @reservation], do |f| %>
+<h1>Edit your Reservation</h1>
 
- <div class="field">
-   <%= f.label :date_time, "Date & Time" %><br>
-   <%= f.datetime_local_field :date_time %>
- </div>
- <div class="field">
-   <%= f.label :party_size, "Number of Guests" %><br>
-   <%= f.number_field :party_size %>
- </div>
- <div class="actions">
-   <%= f.submit "Update Reservation" %>
- </div>
+<%= render "create_reservation" %>
