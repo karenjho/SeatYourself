@@ -38,4 +38,12 @@ class RestaurantTest < ActiveSupport::TestCase
     FactoryGirl.create(:reservation, restaurant: @restaurant, date_time: @time, party_size: 60)
     assert_not @restaurant.available?(60, @time)
   end
+
+  test "restaurant is assigned a rating" do
+    @restaurant.reviews.build(comment: "test", rating: 1)
+    @restaurant.reviews.build(comment: "test", rating: 3)
+    @restaurant.reviews.build(comment: "test", rating: 5)
+    assert 3, @restaurant.rating(@restaurant)
+  end
+
 end

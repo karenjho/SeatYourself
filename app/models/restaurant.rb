@@ -12,4 +12,9 @@ class Restaurant < ActiveRecord::Base
 
     party_size > 0 && party_size <= available_capacity
   end
+
+  def rating(restaurant)
+    restaurant.reviews.average(:rating)
+  end
+
 end

@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to restaurant_path(@restaurant)
     else
-      render :new
+      redirect_to :back, notice: "Review not added"
     end
   end
 
@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:comment)
+    params.require(:review).permit(:comment, :rating)
   end
 
   def load_restaurant

@@ -5,6 +5,8 @@ FactoryGirl.define do
 
   factory :restaurant, class: "Restaurant" do
     capacity 100
+    name "testeraunt"
+    address "123 fake street"
   end
 
   factory :restaurant_for_review, class: "Restaurant" do

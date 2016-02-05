@@ -1,5 +1,6 @@
 <% @user.reviews.each do |review| %>
   <p>Review for <%= link_to "#{review.restaurant.name}", restaurant_path(review.restaurant) %></p>
+  <p><%= review.rating %>/5</p>
   <p><%= review.comment %></p>
   <p>reviewed on <%= review.created_at%></p>
 
