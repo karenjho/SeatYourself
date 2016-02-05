@@ -12,6 +12,8 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @tag = Tag.new
+    @restaurant_tags = @restaurant.tags.all
   end
 
   def new
@@ -21,7 +23,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.owner = current_user
-    
+
     if @restaurant.save
       redirect_to restaurant_path(@restaurant)
     else

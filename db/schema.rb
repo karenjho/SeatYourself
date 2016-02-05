@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20160205200504) do
 
   add_index "restaurants", ["owner_id"], name: "index_restaurants_on_owner_id"
 
+  create_table "restaurants_tags", id: false, force: :cascade do |t|
+    t.integer "restaurant_id"
+    t.integer "tag_id"
+  end
+
+  add_index "restaurants_tags", ["restaurant_id"], name: "index_restaurants_tags_on_restaurant_id"
+  add_index "restaurants_tags", ["tag_id"], name: "index_restaurants_tags_on_tag_id"
+
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "restaurant_id"
@@ -55,14 +63,6 @@ ActiveRecord::Schema.define(version: 20160205200504) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "tags_restaurants", id: false, force: :cascade do |t|
-    t.integer "tag_id"
-    t.integer "restaurant_id"
-  end
-
-  add_index "tags_restaurants", ["restaurant_id"], name: "index_tags_restaurants_on_restaurant_id"
-  add_index "tags_restaurants", ["tag_id"], name: "index_tags_restaurants_on_tag_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

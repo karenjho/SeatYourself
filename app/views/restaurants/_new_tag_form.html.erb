@@ -1,0 +1,9 @@
+<%= form_for ([@restaurant, @tag]) do |f| %>
+  <div class="field">
+    <%= f.label :tagname, "Add a new tag" %>
+    <%= f.text_field :tagname %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>

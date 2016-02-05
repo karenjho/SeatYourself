@@ -11,3 +11,17 @@
     <%= link_to "Website", @restaurant.url %>
   </p>
 </div>
+
+<div class="tags">
+
+  <% @restaurant.tags.each do |tag| %>
+    <ul>
+      <li><%= tag %></li>
+    </ul>
+  <% end %>
+
+  <%= render "assign_tag_form" %>
+
+  <%= render "new_tag_form" %>
+
+</div>
