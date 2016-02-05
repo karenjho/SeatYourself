@@ -21,4 +21,20 @@
       </li>
     </ul>
   <% end %>
+  <h4> Your Restaurants' Reservations </h4>
+  <ul>
+    <% @user.owned_restaurants.each do |restaurant| %>
+      <li>
+        <%= restaurant.name %>
+      </li>
+      <ul>
+      <% restaurant.reservations.each do |reservation| %>
+      <li>
+        <%= reservation.date_time %><br>
+        <%= reservation.party_size %><br>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
+  </ul>
 <% end %>
