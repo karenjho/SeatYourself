@@ -14,7 +14,7 @@ class Restaurant < ActiveRecord::Base
   end
 
   def rating(restaurant)
-    restaurant.reviews.average(:rating)
+    restaurant.reviews.average(:rating).round(1)
   end
 
 end
