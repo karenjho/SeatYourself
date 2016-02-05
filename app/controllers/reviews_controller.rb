@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = @restaurant.review.build(review_params)
+    @review = @restaurant.reviews.build(review_params)
     @review.user = current_user
     if @review.save
       redirect_to restaurant_path(@restaurant)
