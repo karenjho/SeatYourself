@@ -1,7 +1,8 @@
 <% @user.reviews.each do |review| %>
   <p>Review for <%= review.restaurant.name %></p>
   <p><%= review.comment %></p>
-  <% if review.user != nil %>
-    <p>reviewed on <%= review.created_at%></p>
-  <% end %>
+  <p>reviewed on <%= review.created_at%></p>
+
+  <%= link_to "Edit Review", edit_restaurant_review_path(review.restaurant, review) %>
+
 <% end %>

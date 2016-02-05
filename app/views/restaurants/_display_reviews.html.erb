@@ -3,4 +3,7 @@
   <% if review.user != nil %>
     <p>reviewed by <%= link_to "#{review.user.username}", user_path(review.user) %> on <%= review.created_at%></p>
   <% end %>
+  <% if review.user == current_user %>
+    <p><%= link_to "Edit Review", edit_restaurant_review_path(@restaurant, review) %></p>
+  <% end %>
 <% end %>

@@ -1,0 +1,14 @@
+<% if current_user %>
+  <%= form_for ([@restaurant, @review]) do |f| %>
+
+    <div class="field">
+      <%= f.label :comment %>
+      <%= f.text_area :comment %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update Review" %>
+    </div>
+
+  <% end %>
+<% end %>
