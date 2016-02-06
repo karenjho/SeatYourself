@@ -6,26 +6,43 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <% if flash[:notice] %>
-    <p id ="notice"><%= flash[:notice] %></p>
-  <% end %>
+<div class="container-fluid">
+  <body>
+    <header>
 
-  <% if flash[:alert] %>
-    <p id= "alert"><%= flash[:alert] %></p>
-  <% end %>
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
 
-  <%= link_to "HOME", root_path %>
+            <%= link_to "SeatYourself", root_path, class: "navbar-brand" %>
 
-  <%= yield %>
+            <p class= "navbar-text">
+              <% if current_user %>
+                Signed in as <%= link_to current_user.username, user_path(current_user) %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+              <% else %>
+                <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+              <% end %>
+            </p>
 
-  <p class= "userinfo">
-  <% if current_user %>
-  Signed in as <%= link_to current_user.username, user_path(current_user) %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
-    <% else %>
-  <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
-  <% end %>
-</p>
+          </div>
+        </div>
+      </nav>
 
-</body>
+    </header>
+
+    <div class="notices">
+      <% if flash[:notice] %>
+        <p id ="notice"><%= flash[:notice] %></p>
+      <% end %>
+    </div>
+    <div class="flashes">
+      <% if flash[:alert] %>
+        <p id= "alert"><%= flash[:alert] %></p>
+      <% end %>
+    </div>
+
+    <%= yield %>
+
+  </body>
+</div>
 </html>
