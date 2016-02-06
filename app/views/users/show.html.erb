@@ -17,10 +17,29 @@
       <li>
         Place: <%= reserv.restaurant.name %><br>
         Time: <%= reserv.date_time %><br>
-        Party Size: <%= reserv.party_size %>
+        Party Size: <%= reserv.party_size %><br>
+        <%= link_to "Edit", edit_restaurant_reservation_path(reserv.restaurant, reserv) %><br>
+        <%= link_to "Delete", restaurant_reservation_path(reserv.restaurant, reserv), method: :delete, data: {confirm: "Are you sure you want to delete this reservation?"} %>
       </li>
+
     </ul>
   <% end %>
+  <h4> Your Restaurants' Reservations </h4>
+  <ul>
+    <% @user.owned_restaurants.each do |restaurant| %>
+      <li>
+        <%= restaurant.name %>
+      </li>
+      <ul>
+      <% restaurant.reservations.each do |reservation| %>
+      <li>
+        <%= reservation.date_time %><br>
+        <%= reservation.party_size %><br>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
+  </ul>
 <% end %>
 
 <h2>Your Reviews:</h2>
