@@ -4,6 +4,7 @@
   <p><%= review.comment %></p>
   <p>reviewed on <%= review.created_at%></p>
 
-  <%= link_to "Edit Review", edit_restaurant_review_path(review.restaurant, review) %>
+  <%= link_to "Edit Review", edit_restaurant_review_path(review.restaurant, review) %> |
+  <%= link_to "Delete", restaurant_review_path(review.restaurant, review), method: :delete, data: { confirm: "Are you sure you wish to delete this review?" } %>
 
 <% end %>

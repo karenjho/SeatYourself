@@ -5,6 +5,7 @@
     <p>reviewed by <%= link_to "#{review.user.username}", user_path(review.user) %> on <%= review.created_at%></p>
   <% end %>
   <% if review.user == current_user %>
-    <p><%= link_to "Edit Review", edit_restaurant_review_path(@restaurant, review) %></p>
+    <p><%= link_to "Edit", edit_restaurant_review_path(@restaurant, review) %> |
+      <%= link_to "Delete", restaurant_review_path(@restaurant, review), method: :delete, data: { confirm: "Are you sure you wish to delete this review?" } %></p>
   <% end %>
 <% end %>
