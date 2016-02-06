@@ -2,7 +2,13 @@
 
 <h1><%= @restaurant.name %></h1>
 
-<%= link_to "Reserve!", new_restaurant_reservation_path(@restaurant) %> | <%= link_to "Edit restaurant", edit_restaurant_path(@restaurant) %>
+<% if current_user %>
+  <%= link_to "Reserve!", new_restaurant_reservation_path(@restaurant) %>
+<% end %>
+
+<% if current_user == @restaurant.owner %>
+  <%= link_to "Edit restaurant", edit_restaurant_path(@restaurant) %>
+<% end %>
 
 <div class="contact">
   <p>
@@ -12,6 +18,19 @@
   </p>
 </div>
 
-<%= render "create_review" %>
+<div class="reviews">
 
-<%= render "display_reviews" %>
+  <%= render "create_review" %>
+
+  <%= render "display_reviews" %>
+
+</div>
+
+
+<div class="tags">
+
+  <%= render "assign_tag_form" %>
+
+  <%= render "new_tag_form", restaurant_id: @restaurant.id %>
+
+</div>

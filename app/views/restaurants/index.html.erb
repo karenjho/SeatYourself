@@ -5,8 +5,10 @@
 <ul>
   <% @restaurants.sort_by { |restaurant| restaurant.rating(restaurant) }.reverse.each do |restaurant| %>
     <li>
-      <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %> |
-      <%= link_to "Reserve now", new_restaurant_reservation_path(restaurant) %>
+      <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %>
+      <% if current_user %>
+        <%= link_to "Reserve now", new_restaurant_reservation_path(restaurant) %>
+      <% end %>
     </li>
     <% if restaurant.reviews.present? %>
       <li>Rating: <%= restaurant.rating(restaurant) %>/5</li>

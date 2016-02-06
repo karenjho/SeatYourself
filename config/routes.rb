@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :reviews
     resources :reservations
   end
+
   resources :users
+
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :tags, only: [:new, :create, :destroy]
 end
