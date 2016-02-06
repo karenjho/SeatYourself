@@ -1,0 +1,7 @@
+<%= form_for (@tag) do |f| %>
+  <div class="field">
+    <%= f.text_field :tagname %>
+    <%= hidden_field_tag :restaurant_id, @restaurant.id %>
+    <%= f.submit "New Tag" %>
+  </div>
+<% end %>
