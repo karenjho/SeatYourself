@@ -2,8 +2,7 @@ class TagsController < ApplicationController
   before_action :load_restaurant
 
   def create
-    @tag = @restaurant.tags.build(tag_params)
-    @tag.tagname.downcase!
+    @tag = @restaurant.tags.create(tag_params)
 
     if @tag.save
       redirect_to restaurant_path(@restaurant)

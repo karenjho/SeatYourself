@@ -1,6 +1,8 @@
-<h1>Tags</h1>
-<% @restaurant_tags.each do |resto_tag| %>
-  <ul>
-    <li><%= resto_tag %></li>
-  </ul>
-<% end %>
+<h3>Tags</h3>
+
+<p>
+  <%= form_for @restaurant do |f| %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :tagname %>
+    <%= f.submit "Save tags" %>
+  <% end %>
+</p>

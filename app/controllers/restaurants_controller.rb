@@ -13,7 +13,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @tag = Tag.new
-    @restaurant_tags = @restaurant.tags.all
   end
 
   def new
@@ -35,6 +34,15 @@ class RestaurantsController < ApplicationController
   end
 
   def update
+
+    if params[:tag_ids]
+      @tag = Tag.find(params[:tag_ids])
+      @restaurant.tags << @tag unless @restaurant.tags.include?(@tag)
+
+      redirect_to restaurant_path(@restaurant)
+      return
+    end
+
     if @restaurant.update_attributes(restaurant_params)
       redirect_to restaurant_path(@restaurant)
     else
@@ -49,11 +57,10 @@ class RestaurantsController < ApplicationController
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:name, :capacity, :address, :phone, :url, :photo_url, :owner_id)
+    params.require(:restaurant).permit(:name, :capacity, :address, :phone, :url, :photo_url, :owner_id, :tag_ids => [])
   end
 
   def load_restaurant
     @restaurant = Restaurant.find(params[:id])
   end
-
 end
