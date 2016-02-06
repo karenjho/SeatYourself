@@ -30,7 +30,7 @@ class ReservationsController < ApplicationController
 
   def update
     if @reservation.update_attributes(reservation_params)
-      redirect_to restaurants_path
+      redirect_to user_path(current_user)
     else
       render :edit
     end
