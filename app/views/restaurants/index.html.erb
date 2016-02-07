@@ -1,49 +1,53 @@
 <div class="jumbotron">
   <div class="container-fluid">
-    <%= render "search_form" %>
+    <div class="search-bar">
+      <%= render "search_form" %>
+    </div>
   </div>
 </div>
 
 <div class="container-fluid">
   <div class="section-title">
-    <h1>Restaurants</h1>
+    <h2>Restaurants</h2>
   </div>
 </div>
 
 <div class="container-fluid">
-  <div class="row">
+  <div class="restaurants">
+    <div class="row">
 
-    <% @restaurants.sort_by { |restaurant| restaurant.rating(restaurant) }.reverse.each do |restaurant| %>
+      <% @restaurants.sort_by { |restaurant| restaurant.rating(restaurant) }.reverse.each do |restaurant| %>
 
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <%= image_tag(restaurant.photo_url) %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag(restaurant.photo_url, class: "img-responsive") %>
 
-        <div class="caption">
-          <h3><%= restaurant.name %></h3>
-          <p>
-            <% if restaurant.reviews.present? %>
-              Rating: <%= restaurant.rating(restaurant) %>/5
-            <% else %>
-              No ratings yet
-            <% end %>
-          </p>
-          <p class="tags">
-            <% restaurant.tags.each do |tag| %>
-              <%= tag.tagname.capitalize %>
-            <% end %>
-          </p>
-          <p>
-            <% if current_user %>
-              <%= button_to "Reserve Now", new_restaurant_reservation_path(restaurant), method: "get" %>
-            <% end %>
-          </p>
+          <div class="caption">
+            <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+            <p class="rating">
+              <% if restaurant.reviews.present? %>
+                Rating: <%= restaurant.rating(restaurant) %>/5
+              <% else %>
+                No ratings yet
+              <% end %>
+            </p>
+            <h5 class="tags">
+              <% restaurant.tags.each do |tag| %>
+                <small><%= tag.tagname.capitalize %></small>
+              <% end %>
+            </h5>
+            <p class="reserve-now">
+              <% if current_user %>
+                <%= button_to "Reserve Now", new_restaurant_reservation_path(restaurant), method: "get", class: "btn btn-primary" %>
+              <% end %>
+            </p>
+          </div>
+
         </div>
-
       </div>
+
+      <% end %>
+
     </div>
-
-    <% end %>
-
   </div>
 </div>

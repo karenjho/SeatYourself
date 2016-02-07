@@ -17,11 +17,11 @@
 
             <%= link_to "SeatYourself", root_path, class: "navbar-brand" %>
 
-            <p class= "navbar-text">
+            <p class= "navbar-text navbar-right">
               <% if current_user %>
-                Signed in as <%= link_to current_user.username, user_path(current_user) %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+                Signed in as <%= link_to current_user.username, user_path(current_user) %> | <%= link_to "Log out", session_path("current"), :method => :delete %>
               <% else %>
-                <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+                <%= link_to "Log in", new_session_path %> | <%= link_to "Sign up", new_user_path %>
               <% end %>
             </p>
 
@@ -45,6 +45,6 @@
     <%= yield %>
 
   </body>
-  
+
 </div>
 </html>
