@@ -21,6 +21,12 @@ body {
   background-color: #f6f1ed;
 }
 
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
 .container-fluid .jumbotron {
   height: 420px;
   top: 75px;
