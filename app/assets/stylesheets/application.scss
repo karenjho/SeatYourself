@@ -29,7 +29,8 @@ header {
 
 .container-fluid .jumbotron {
   height: 420px;
-  top: 75px;
+  position: relative;
+  top: 8%;
   border-radius: 0px;
   background: url("restaurantcover2.jpg") no-repeat center center;
   background-size: cover;
@@ -42,9 +43,14 @@ header {
     padding: 0;
 }
 
+.homepage {
+  position: relative;
+  top: 8%;
+}
+
 .navbar {
     margin: 0;
-    height: 10%;
+    height: 8%;
     border-radius: 0;
     background-color: #163d44;
     padding-left: 2%;
@@ -54,8 +60,8 @@ header {
 
 .navbar-header {
     width: 100%;
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 .navbar-brand {
@@ -87,6 +93,7 @@ input#search {
 
 .section-title {
     text-align: center;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .restaurants {
@@ -99,12 +106,41 @@ input#search {
   height: 200px;
 }
 
+.thumbnail a {
+  color: #667467;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 .tags {
     text-transform: uppercase;
+    margin-bottom: 8%;
+}
+
+.button_to {
+  overflow: auto;
 }
 
 .btn.btn-primary {
     background-color: #963019;
+    color: #ffffff;
+    border: 0;
+    border-radius: 0;
+}
+
+.tag-list {
+  padding-left: 6%;
+  padding-right: 6%;
+  text-align: center;
+}
+
+.tag-button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.btn.btn-default {
+    background-color: #667467;
     color: #ffffff;
     border: 0;
     border-radius: 0;
