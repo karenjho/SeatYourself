@@ -4,20 +4,46 @@
   </div>
 </div>
 
-<h1>Restaurants</h1>
+<div class="container-fluid">
+  <div class="section-title">
+    <h1>Restaurants</h1>
+  </div>
+</div>
 
+<div class="container-fluid">
+  <div class="row">
 
+    <% @restaurants.sort_by { |restaurant| restaurant.rating(restaurant) }.reverse.each do |restaurant| %>
 
-<ul>
-  <% @restaurants.sort_by { |restaurant| restaurant.rating(restaurant) }.reverse.each do |restaurant| %>
-    <li>
-      <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %>
-      <% if current_user %>
-        <%= link_to "Reserve now", new_restaurant_reservation_path(restaurant) %>
-      <% end %>
-    </li>
-    <% if restaurant.reviews.present? %>
-      <li>Rating: <%= restaurant.rating(restaurant) %>/5</li>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= image_tag(restaurant.photo_url) %>
+
+        <div class="caption">
+          <h3><%= restaurant.name %></h3>
+          <p>
+            <% if restaurant.reviews.present? %>
+              Rating: <%= restaurant.rating(restaurant) %>/5
+            <% else %>
+              No ratings yet
+            <% end %>
+          </p>
+          <p class="tags">
+            <% restaurant.tags.each do |tag| %>
+              <%= tag.tagname.capitalize %>
+            <% end %>
+          </p>
+          <p>
+            <% if current_user %>
+              <%= button_to "Reserve Now", new_restaurant_reservation_path(restaurant), method: "get" %>
+            <% end %>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
     <% end %>
-  <% end %>
-</ul>
+
+  </div>
+</div>
