@@ -27,12 +27,21 @@ header {
     z-index: 100;
 }
 
-.container-fluid .jumbotron {
-  height: 420px;
-  position: relative;
+.container-fluid .jumbotron.homepage {
+  height: 450px;
   top: 8%;
   border-radius: 0px;
-  background: url("restaurantcover2.jpg") no-repeat center center;
+  background: url("restaurantcover1.jpg") no-repeat center center;
+  background-size: cover;
+  text-align: center;
+  padding: 20%;
+}
+
+.container-fluid .jumbotron.tag-list {
+  height: 450px;
+  top: 8%;
+  border-radius: 0px;
+  background: url("meal2.jpg") no-repeat center center;
   background-size: cover;
   text-align: center;
   padding: 20%;
@@ -43,9 +52,11 @@ header {
     padding: 0;
 }
 
-.homepage {
-  position: relative;
+.content {
   top: 8%;
+  padding-top: 80px;
+  padding-left: 3%;
+  padding-right: 3%;
 }
 
 .navbar {
@@ -94,9 +105,12 @@ input#search {
 .section-title {
     text-align: center;
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-.restaurants {
+.restaurant-list {
+    margin-bottom: 6%;
     padding-left: 6%;
     padding-right: 6%;
 }
@@ -144,9 +158,10 @@ input#search {
 }
 
 .tag-list {
-  margin-bottom: 10%;
+  background-color: #ffffff;
   padding-left: 6%;
   padding-right: 6%;
+  padding-bottom: 6%;
   text-align: center;
 }
 
@@ -157,8 +172,8 @@ input#search {
 }
 
 .btn.btn-default {
-    background-color: #667467;
-    color: #ffffff;
-    border: 0;
-    border-radius: 0;
+  background-color: #667467;
+  color: #ffffff;
+  border: 0;
+  border-radius: 0;
 }

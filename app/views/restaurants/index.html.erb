@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron homepage">
   <div class="container-fluid">
     <div class="search-bar">
       <%= render "search_form" %>
@@ -6,22 +6,16 @@
   </div>
 </div>
 
-<div class="homepage">
-
-  <div class="container-fluid">
-    <div class="section-title">
-      <h2>Restaurants</h2>
-    </div>
+<div class="container-fluid restaurant-list">
+  <div class="section-title">
+    <h2>Restaurants</h2>
   </div>
-
   <%= render "restaurant_list" %>
+</div>
 
-  <div class="container-fluid">
-    <div class="section-title">
-      <h2>I Feel Like...</h2>
-    </div>
+<div class="container-fluid tag-list">
+  <div class="section-title">
+    <h2>I Feel Like...</h2>
   </div>
-
   <%= render "tag_list" %>
-
 </div>

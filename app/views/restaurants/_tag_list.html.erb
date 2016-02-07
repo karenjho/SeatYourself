@@ -1,11 +1,7 @@
-<div class="container-fluid">
-  <div class="tag-list">
-    <div class="row">
-        <% @tags.each do |tag| %>
-        <div class="tag-button">
-          <%= button_to "#{tag.tagname}", tag_path(tag), method: "get", class: "btn btn-default" %>
-        </div>
-        <% end %>
+<div class="row">
+    <% @tags.each do |tag| %>
+    <div class="tag-button">
+      <%= button_to "#{tag.tagname}", tag_path(tag), method: "get", class: "btn btn-default" %>
     </div>
-  </div>
+    <% end %>
 </div>

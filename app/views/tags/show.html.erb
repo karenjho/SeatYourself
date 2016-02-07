@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron tag-list">
   <div class="container-fluid">
     <div class="search-bar">
       <%= render "restaurants/search_form" %>
@@ -6,14 +6,13 @@
   </div>
 </div>
 
-<div class="homepage">
+<div class="content">
 
-  <div class="container-fluid">
+  <div class="container-fluid restaurant-list">
     <div class="section-title">
       <h2><%= @tag.tagname.titleize %> Restaurants</h2>
     </div>
+    <%= render "restaurants/restaurant_list" %>
   </div>
-
-  <%= render "restaurants/restaurant_list" %>
 
 </div>

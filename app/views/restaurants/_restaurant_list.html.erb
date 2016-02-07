@@ -1,41 +1,37 @@
-<div class="container-fluid">
-  <div class="restaurants">
-    <div class="row">
+<div class="row">
 
-      <% @restaurants.sort_by { |restaurant| restaurant.rating(restaurant) }.reverse.each do |restaurant| %>
+  <% @restaurants.sort_by { |restaurant| restaurant.rating(restaurant) }.reverse.each do |restaurant| %>
 
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <div class="restaurant-photo">
-            <%= image_tag(restaurant.photo_url) %>
-          </div>
-
-          <div class="caption">
-            <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
-            <p class="rating">
-              <% if restaurant.reviews.present? %>
-                Rating: <%= restaurant.rating(restaurant) %>/5
-              <% else %>
-                No ratings yet
-              <% end %>
-            </p>
-            <h5 class="tags">
-              <% restaurant.tags.each do |tag| %>
-                <small><%= tag.tagname.capitalize %></small>
-              <% end %>
-            </h5>
-            <p class="reserve-now">
-              <% if current_user %>
-                <%= button_to "Reserve Now", new_restaurant_reservation_path(restaurant), method: "get", class: "btn btn-primary pull-right" %>
-              <% end %>
-            </p>
-          </div>
-
-        </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="restaurant-photo">
+        <%= image_tag(restaurant.photo_url) %>
       </div>
 
-      <% end %>
+      <div class="caption">
+        <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+        <p class="rating">
+          <% if restaurant.reviews.present? %>
+            Rating: <%= restaurant.rating(restaurant) %>/5
+          <% else %>
+            No ratings yet
+          <% end %>
+        </p>
+        <h5 class="tags">
+          <% restaurant.tags.each do |tag| %>
+            <small><%= tag.tagname.capitalize %></small>
+          <% end %>
+        </h5>
+        <p class="reserve-now">
+          <% if current_user %>
+            <%= button_to "Reserve Now", new_restaurant_reservation_path(restaurant), method: "get", class: "btn btn-primary pull-right" %>
+          <% end %>
+        </p>
+      </div>
 
     </div>
   </div>
+
+  <% end %>
+
 </div>
