@@ -2,37 +2,40 @@
 
   <div class="restaurant-profile-photo">
     <%= image_tag(@restaurant.photo_url) %>
-    <h1><%= @restaurant.name %></h1>
-  </div>
-
-  <div class="links">
-    <% if current_user %>
-      <%= link_to "Reserve!", new_restaurant_reservation_path(@restaurant) %>
-    <% end %>
-
-    <% if current_user == @restaurant.owner %>
-      <%= link_to "Edit restaurant", edit_restaurant_path(@restaurant) %> |
-      <%= link_to "Delete restaurant", @restaurant, method: :delete, data: { confirm: "Are you sure you want to delete this restaurant?" } %>
-    <% end %>
   </div>
 
   <div class="contact">
+    <h1><%= @restaurant.name %></h1>
     <p>
-      <%= @restaurant.address %><br>
-      <%= @restaurant.phone %><br>
-      <%= link_to "Website", @restaurant.url %>
+      <%= link_to "#{@restaurant.address}", "https://www.google.ca/maps/place/#{@restaurant.address}" %><br>
+      <%= @restaurant.phone %> | <%= link_to "Website", @restaurant.url %>
     </p>
   </div>
 
+  <div class="links">
+    <div class="reserve-link">
+      <% if current_user %>
+        <%= link_to button_tag("Reserve!"), new_restaurant_reservation_path(@restaurant) %>
+      <% end %>
+    </div>
+
+    <div class="owner-links">
+      <% if current_user == @restaurant.owner %>
+        <%= link_to "Edit restaurant", edit_restaurant_path(@restaurant) %> |
+        <%= link_to "Delete restaurant", @restaurant, method: :delete, data: { confirm: "Are you sure you want to delete this restaurant?" } %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="add-tags">
+    <%= render "assign_tag_form" %>
+    <%= render "new_tag_form", restaurant_id: @restaurant.id %>
+  </div>
+
   <div class="reviews">
+    <h3>Reviews</h3>
     <%= render "create_review" %>
     <%= render "display_reviews" %>
   </div>
 
-
-  <div class="tags">
-    <%= render "assign_tag_form" %>
-    <%= render "new_tag_form", restaurant_id: @restaurant.id %>
-  </div>
-  
 </div>

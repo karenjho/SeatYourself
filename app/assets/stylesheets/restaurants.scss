@@ -3,3 +3,77 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // RESTAURANT SHOW PAGE STYLES
+.restaurant-profile-photo {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin: 10px 0 20px 0;
+}
+
+.restaurant-profile-photo img {
+    width: 100%;
+    min-width: 500px;
+    height: auto;
+}
+.links {
+  margin-bottom: 10px;
+}
+.reserve-link,
+.owner-links {
+  display: inline-block;
+}
+.reserve-link button {
+    font-size: 20px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #963019;
+    border: 0;
+    padding: 5px 10px 5px 10px;
+    margin-right: 10px;
+}
+.reserve-link button:hover {
+    background-color: #163D44;
+}
+.contact {
+    overflow: auto;
+    width: 100%;
+    min-width: 500px;
+}
+.contact h1,
+.contact p {
+    display: inline-block;
+}
+.contact h1 {
+    float: left;
+    margin: 0;
+}
+.contact p {
+    float: right;
+}
+.reviews {
+  border-top: 1px solid #999;
+  margin-top: 20px;
+}
+.new-review-form {
+  margin-bottom: 20px;
+}
+.new-review-form .field,
+.new-review-form .actions {
+    margin-bottom: 10px;
+}
+.new-review-form .field p {
+    margin-bottom: 0;
+}
+.add-tags h3 {
+    font-size: 16px;
+}
+.add-tags form label {
+    padding: 0 5px 0 5px;
+    font-size: 14px;
+}
+.review {
+  margin-bottom: 15px;
+}
+.review p {
+    margin: 0;
+}
