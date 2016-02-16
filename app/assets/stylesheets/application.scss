@@ -15,7 +15,9 @@
  // Custom bootstrap variables must be set or import before bootstrap itself.
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "restaurants.scss";
  @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
 
 body {
   background-color: #f6f1ed;
