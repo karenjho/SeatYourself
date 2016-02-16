@@ -10,7 +10,9 @@
   <div class="section-title">
     <h2>Restaurants</h2>
   </div>
-  <%= render "restaurant_list" %>
+  <div class="row" id="restaurants">
+    <%= render @restaurants %>
+  </div>
 </div>
 
 <div class="container-fluid tag-list">

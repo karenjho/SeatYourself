@@ -2,13 +2,16 @@ class RestaurantsController < ApplicationController
   before_action :load_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
-    @restaurants = Restaurant.all
     @tags = Tag.all
 
-    if params[:search]
-      @restaurants = Restaurant.where("name LIKE ?", "%#{params[:search]}%")
+    @restaurants = if params[:search]
+      Restaurant.where("name LIKE ?", "%#{params[:search]}%")
     else
-      @restaurants = Restaurant.all.order(created_at: :desc)
+      Restaurant.all.order(created_at: :desc)
+    end
+
+    if request.xhr?
+      render @restaurants
     end
   end
 

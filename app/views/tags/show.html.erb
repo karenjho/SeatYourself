@@ -6,13 +6,9 @@
   </div>
 </div>
 
-<div class="content">
-
-  <div class="container-fluid restaurant-list">
-    <div class="section-title">
-      <h2><%= @tag.tagname.titleize %> Restaurants</h2>
-    </div>
-    <%= render "restaurants/restaurant_list" %>
+<div class="container-fluid restaurant-list">
+  <div class="section-title">
+    <h2><%= @tag.tagname.titleize %> Restaurants</h2>
   </div>
-
+  <%= render @restaurants %>
 </div>
