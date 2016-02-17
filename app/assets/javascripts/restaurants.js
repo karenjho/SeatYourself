@@ -12,12 +12,7 @@ $(document).on('ready', function() {
     event.preventDefault();
     var searchValue = $('#search').val();
 
-    $.get('/restaurants?search=' + searchValue)
-        .done(function(data){
-          console.log(data);
-          $('#restaurants').html(data);
-        });
-
+    $.getScript('/restaurants?search=' + searchValue);
   });
 
 })

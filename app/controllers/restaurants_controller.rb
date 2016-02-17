@@ -10,8 +10,9 @@ class RestaurantsController < ApplicationController
       Restaurant.all.order(created_at: :desc)
     end
 
-    if request.xhr?
-      render @restaurants
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
