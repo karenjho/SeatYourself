@@ -12,13 +12,11 @@ $(document).on('ready', function() {
     event.preventDefault();
     var searchValue = $('#search').val();
 
-    $.ajax({
-      url: '/restaurants?search=' + searchValue,
-      type: 'GET',
-      dataType: 'html'
-    }).done(function(data){
-      $('#restaurants').html(data);
-    });
+    $.get('/restaurants?search=' + searchValue)
+        .done(function(data){
+          console.log(data);
+          $('#restaurants').html(data);
+        });
 
   });
 
