@@ -12,8 +12,12 @@ $(document).on('ready', function() {
     event.preventDefault();
     var searchValue = $('#search').val();
 
-    $.getScript('/products?search=' + searchValue);
-    
+    $.get('/restaurants?search=' + searchValue)
+        .done(function(data){
+          console.log(data);
+          $('#restaurants').html(data);
+        });
+
   });
 
 })
