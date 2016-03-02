@@ -38,10 +38,15 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Use bootstrap
 # gem 'bootstrap', '~> 4.0.0.alpha3'
 
+gem 'geocoder'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'factory_girl_rails'
+
+  # Removes unimportant logs from server log, like asset requests
+  gem 'quiet_assets'
 end
 
 group :development do

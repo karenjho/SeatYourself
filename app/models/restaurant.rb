@@ -5,6 +5,9 @@ class Restaurant < ActiveRecord::Base
   has_many :users, through: :reservations
   has_and_belongs_to_many :tags
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   validates :name, :capacity, :address, presence: true
 
   def available?(party_size, date_time)

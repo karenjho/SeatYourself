@@ -1,7 +1,7 @@
 <div class="row">
     <% @tags.each do |tag| %>
     <div class="tag-button">
-      <%= button_to "#{tag.tagname}", tag_path(tag), method: "get", class: "btn btn-default" %>
+      <%= button_to "#{tag.tagname}", tag_path(tag), method: "get", class: "btn btn-default tag-button" %>
     </div>
     <% end %>
 </div>
