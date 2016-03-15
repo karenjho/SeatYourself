@@ -5,7 +5,7 @@ Ruby on Rails, JavaScript/jQuery, and HTML/CSS on the Bootstrap framework.
 
 ![](seatyourself-screenshot.png)
 
-#### Collaborators
+#### Contributors
 
 Jonathan Alorda, Patrick Cruikshank, Natalie Doak, and Karen Ho.
 
